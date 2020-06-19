@@ -1,3 +1,4 @@
+import { AuthGuardService } from './services/auth-guard.service';
 import { AnnoncesService } from './services/annonces.service';
 import { OffresService } from './services/offres.service';
 import { AuthService } from './services/auth.service';
@@ -45,7 +46,8 @@ import { HeaderComponent } from './layout/header/header.component';
   providers: [
     AuthService,
     OffresService,
-    AnnoncesService
+    AnnoncesService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

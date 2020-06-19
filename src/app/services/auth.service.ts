@@ -8,6 +8,8 @@ import { tap, catchError } from 'rxjs/operators';
 })
 export class AuthService {
 
+  isAuth = false;
+
   constructor(private http: HttpClient) { }
 
   inscription(user: User) {
@@ -36,6 +38,7 @@ export class AuthService {
 
   setSession(user) {
     localStorage.setItem('current_user', JSON.stringify(user));
+    this.isAuth = true;
   }
 
 }
