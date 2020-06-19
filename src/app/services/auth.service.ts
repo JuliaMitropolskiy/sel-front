@@ -12,23 +12,28 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  // inscription(user: User) {
+  //   this.http
+  //     .post('http://localhost:8081/users/inscription', user)
+  //     .subscribe(
+  //       () => {
+  //         console.log('L\'inscription reussi');
+  //       },
+  //       (error) => {
+  //         console.log(error.error.message);
+  //       }
+  //     );
+  // }
+
   inscription(user: User) {
-    this.http
-      .post('http://localhost:8081/users/inscription', user)
-      .subscribe(
-        () => {
-          console.log('L\'inscription reussi');
-        },
-        (error) => {
-          console.log(error.error.message);
-        }
-      );
+    return this.http
+      .post('http://localhost:8081/users/inscription', user);
   }
 
   connexion(login: string, password: string) {
-    const headers: HttpHeaders = new HttpHeaders({ login: login, password: password });
+    const headers: HttpHeaders = new HttpHeaders({ login, password });
     return this.http
-      .get('http://localhost:8081/users/connexion', { headers: headers })
+      .get('http://localhost:8081/users/connexion', { headers })
       .pipe(
         tap(user => {
           console.log(user);
