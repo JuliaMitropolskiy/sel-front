@@ -1,3 +1,4 @@
+import { AuthGuardService } from './services/auth-guard.service';
 import { TransferMinutesComponent } from './echanges/transfer-minutes/transfer-minutes.component';
 import { AnnonceSeulComponent } from './annonces/annonce-seul/annonce-seul.component';
 import { AnnonceFormComponent } from './annonces/annonce-form/annonce-form.component';
@@ -13,13 +14,14 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   { path: 'auth/signup', component: SignupComponent },
   { path: 'auth/signin', component: SigninComponent },
-  { path: 'offres', component: OffreListComponent },
-  { path: 'offres/new', component: OffreFormComponent },
-  { path: 'offres/view/:id', component: OffreSeulComponent },
-  { path: 'annonces', component: AnnonceListComponent },
-  { path: 'annonces/new', component: AnnonceFormComponent },
-  { path: 'annonces/view/:id', component: AnnonceSeulComponent },
-  { path: 'transfer-minutes', component: TransferMinutesComponent },
+  { path: 'offres', canActivate: [AuthGuardService], component: OffreListComponent },
+  { path: 'offres/new', canActivate: [AuthGuardService], component: OffreFormComponent },
+  { path: 'offres/view/:id', canActivate: [AuthGuardService], component: OffreSeulComponent },
+  { path: 'annonces', canActivate: [AuthGuardService], component: AnnonceListComponent },
+  { path: 'annonces/new', canActivate: [AuthGuardService], component: AnnonceFormComponent },
+  { path: 'annonces/view/:id', canActivate: [AuthGuardService], component: AnnonceSeulComponent },
+  { path: 'transfer-minutes', canActivate: [AuthGuardService], component: TransferMinutesComponent },
+  { path: '', component: SigninComponent }
 
 ];
 
