@@ -1,4 +1,7 @@
+import { Offre } from './../../models/Offre.model';
+import { OffreService } from '../../services/offre.service';
 import { Component, OnInit } from '@angular/core';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-offre-list',
@@ -7,10 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OffreListComponent implements OnInit {
 
-  constructor() { }
+  offres: Offre[];
+
+  constructor(private offreService: OffreService) { }
 
   ngOnInit() {
     console.log(localStorage.getItem('current_user'));
+    this.offreService.getAllOffres().subscribe(
+      (result: any) => {
+        console.log(result);
+        this.offres = result;
+        console.log('piou piou ', this.offres);
+      },
+      (error) => {
+        console.log(error);
+        this.offres = [];
+      }
+    );
   }
 
 }

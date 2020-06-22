@@ -1,6 +1,6 @@
 import { AuthGuardService } from './services/auth-guard.service';
-import { AnnoncesService } from './services/annonces.service';
-import { OffresService } from './services/offres.service';
+import { AnnonceService } from './services/annonce.service';
+import { OffreService } from './services/offre.service';
 import { AuthService } from './services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -45,8 +45,8 @@ import { HeaderComponent } from './layout/header/header.component';
   ],
   providers: [
     AuthService,
-    OffresService,
-    AnnoncesService,
+    OffreService,
+    AnnonceService,
     AuthGuardService
   ],
   bootstrap: [AppComponent]
