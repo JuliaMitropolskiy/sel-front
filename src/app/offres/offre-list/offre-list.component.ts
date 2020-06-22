@@ -21,15 +21,11 @@ export class OffreListComponent implements OnInit {
         console.log(result);
         this.offres = result;
         console.log('piou piou ', this.offres);
-        // const tabs = [];
-        // for (let res of result.body) {
-        //   console.log("couc, ", res);
-        //   //   const offre = new Offre(res.id, res.titre, res.text, res.user.id, res.rubrique, res.dateCreation, res.photoLien);
-        //   //   tabs.push(offre);
-        // }
-        // this.offres = tabs;
       },
-      (error) => console.log(error)
+      (error) => {
+        console.log(error);
+        this.offres = [];
+      }
     );
   }
 
