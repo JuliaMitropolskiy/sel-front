@@ -1,1 +1,9 @@
-<p>offre-list works!</p>
+<div *ngFor="let offre of offres">
+  <div>{{ offre.rubrique.libelle }}</div>
+  <div>{{ offre.titre }}</div>
+  <div>{{ offre.text }}</div>
+  <div>{{ offre.dateCreation }}</div>
+  <div>{{ offre.userPrenom }}</div>
+  <div>{{ offre.userCommune }}</div>
+  <div>-----</div>
+</div>

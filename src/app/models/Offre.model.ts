@@ -3,9 +3,12 @@ export class Offre {
     public id: number,
     public titre: string,
     public text: string,
+    public userId: number,
+    public userPrenom: string,
+    public userCommune: string,
     public rubrique: OffreRubrique,
     public dateCreation: Date,
-    public lienPhoto?: string
+    public photoLien?: string
   ) { }
 }
 
