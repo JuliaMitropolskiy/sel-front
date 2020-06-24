@@ -1,1 +1,45 @@
-<p>offre-form works!</p>
+<div class="row">
+  <div class="col-sm-8 offset-sm-2">
+    <h2>Ajouter une offre permanente</h2>
+    <form [formGroup]="offreForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="titre">Titre</label>
+        <input type="text"
+               id="titre"
+               class="form-control"
+               formControlName="titre">
+      </div>
+      <div class="form-group">
+        <label for="text">Description</label>
+        <textarea id="text"
+                  class="form-control"
+                  formControlName="text"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="rubrique">Rubrique</label>
+        <input type="text"
+               id="rubrique"
+               class="form-control"
+               formControlName="rubrique">
+      </div>
+      <div class="form-group">
+        <label for="photoLien">photoLien</label>
+        <input type="text"
+               id="photoLien"
+               class="form-control"
+               formControlName="photoLien">
+      </div>
+
+      <button class="btn btn-danger" (click)="annuler()">Annuler</button>
+
+      <button class="btn btn-success"
+              type="submit"
+              [disabled]="offreForm.invalid">
+              Enregistrer
+      </button>
+
+    </form>
+    <p class="text-danger">{{ errorMessage }}</p>
+  </div>
+</div>
+
