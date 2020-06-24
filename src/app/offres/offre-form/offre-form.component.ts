@@ -1,3 +1,4 @@
+import { Rubrique, Category } from './../../models/Offre.model';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { OffreService } from './../../services/offre.service';
@@ -12,6 +13,8 @@ export class OffreFormComponent implements OnInit {
 
   offreForm: FormGroup;
   errorMessage: string;
+  categories: Category[];
+  rubriques: Rubrique[];
 
   constructor(
     private offreService: OffreService,
@@ -20,23 +23,31 @@ export class OffreFormComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
+    this.offreService.getCategories().subscribe(
+      (res) => {
+        this.categories = res;
+        console.log(this.categories);
+      },
+      (error) => console.log(error, error.error.message)
+    );
   }
 
   initForm() {
     this.offreForm = this.formBuilder.group({
       titre: ['', Validators.required],
       text: ['', Validators.required],
+      category: ['', Validators.required],
       rubrique: ['', Validators.required],
       photoLien: ''
     });
   }
 
   onSubmit(f) {
-    const titre = this.offreForm.get('titre').value;
-    const text = this.offreForm.get('text').value;
+    const titre = f.titre;
+    const text = f.text;
     const userId = JSON.parse(localStorage.getItem('current_user')).id;
-    const rubrique = this.offreForm.get('rubrique').value;
-    const photoLien = this.offreForm.get('photoLien').value;
+    const rubrique = f.rubrique;
+    const photoLien = f.photoLien;
     this.offreService.createOffre(titre, text, userId, rubrique).subscribe(
       () => {
         this.router.navigate(['offres']);
@@ -49,6 +60,15 @@ export class OffreFormComponent implements OnInit {
 
   annuler() {
     this.router.navigate(['offres']);
+  }
+
+  getRubriques(categoryCode) {
+    console.log(categoryCode);
+    this.offreService.getRubriques(categoryCode).subscribe(
+      (res) => {
+        this.rubriques = res;
+      }
+    );
   }
 
 }

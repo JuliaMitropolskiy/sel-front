@@ -6,20 +6,20 @@ export class Offre {
     public userId: number,
     public userPrenom: string,
     public userCommune: string,
-    public rubrique: OffreRubrique,
+    public rubrique: Rubrique,
     public dateCreation: Date,
     public photoLien?: string
   ) { }
 }
 
-export class OffreRubrique {
-  id: string;
+export class Rubrique {
+  code: string;
   libelle: string;
-  category: OffreCategory;
+  category: Category;
 }
 
-export class OffreCategory {
-  id: string;
+export class Category {
+  categoryCode: string;
   libelle: string;
 }
 
