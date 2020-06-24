@@ -22,3 +22,27 @@ export class OffreCategory {
   id: string;
   libelle: string;
 }
+
+/*
+id: number,
+titre: string,
+text: string,
+userId: number,
+userPrenom: string,
+userCommune: string,
+rubrique: OffreRubrique,
+dateCreation: Date,
+photoLien?: string
+*/
+/*
+id
+titre
+text
+userId
+userPrenom
+userCommune
+rubrique
+dateCreation
+photoLien
+*/
+

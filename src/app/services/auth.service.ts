@@ -12,19 +12,6 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  // inscription(user: User) {
-  //   this.http
-  //     .post('http://localhost:8081/users/inscription', user)
-  //     .subscribe(
-  //       () => {
-  //         console.log('L\'inscription reussi');
-  //       },
-  //       (error) => {
-  //         console.log(error.error.message);
-  //       }
-  //     );
-  // }
-
   inscription(user: User) {
     return this.http
       .post('http://localhost:8081/users/inscription', user);
