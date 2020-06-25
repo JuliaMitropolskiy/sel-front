@@ -15,6 +15,7 @@ export class OffreListComponent implements OnInit {
   constructor(private offreService: OffreService) { }
 
   ngOnInit() {
+    this.offres = [];
     console.log(localStorage.getItem('current_user'));
     this.offreService.getAllOffres().subscribe(
       (result: any) => {
@@ -24,7 +25,6 @@ export class OffreListComponent implements OnInit {
       },
       (error) => {
         console.log(error);
-        this.offres = [];
       }
     );
   }

@@ -28,4 +28,8 @@ export class OffreService {
     return this.http.get('http://localhost:8081/rubriques/' + categoryCode);
   }
 
+  getOffresByUserId(userId: number): Observable<any> {
+    return this.http.get('http://localhost:8081/offres/users/' + userId);
+  }
+
 }
