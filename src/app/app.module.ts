@@ -20,6 +20,7 @@ import { AnnonceFormComponent } from './annonces/annonce-form/annonce-form.compo
 import { TransferMinutesComponent } from './echanges/transfer-minutes/transfer-minutes.component';
 import { EchangeListComponent } from './echanges/echange-list/echange-list.component';
 import { HeaderComponent } from './layout/header/header.component';
+import { AccueilComponent } from './accueil/accueil.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { HeaderComponent } from './layout/header/header.component';
     AnnonceFormComponent,
     TransferMinutesComponent,
     EchangeListComponent,
-    HeaderComponent
+    HeaderComponent,
+    AccueilComponent
   ],
   imports: [
     BrowserModule,

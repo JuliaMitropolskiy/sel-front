@@ -19,7 +19,7 @@ export class SigninComponent implements OnInit {
     console.log(f.password);
     this.authService.connexion(f.login, f.password).subscribe(
       () => {
-        this.router.navigateByUrl('annonces');
+        this.router.navigateByUrl('accueil');
         console.log('miaou ' + JSON.parse(localStorage.getItem('current_user')).id);
       },
       (error) => {

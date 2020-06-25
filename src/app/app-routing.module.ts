@@ -1,3 +1,4 @@
+import { AccueilComponent } from './accueil/accueil.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { TransferMinutesComponent } from './echanges/transfer-minutes/transfer-minutes.component';
 import { AnnonceSeulComponent } from './annonces/annonce-seul/annonce-seul.component';
@@ -14,6 +15,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   { path: 'auth/signup', component: SignupComponent },
   { path: 'auth/signin', component: SigninComponent },
+  { path: 'accueil', canActivate: [AuthGuardService], component: AccueilComponent },
   { path: 'offres', canActivate: [AuthGuardService], component: OffreListComponent },
   { path: 'offres/new', canActivate: [AuthGuardService], component: OffreFormComponent },
   { path: 'offres/view/:id', canActivate: [AuthGuardService], component: OffreSeulComponent },
