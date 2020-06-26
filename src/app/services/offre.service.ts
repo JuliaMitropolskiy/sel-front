@@ -24,8 +24,8 @@ export class OffreService {
     return this.http.get('http://localhost:8081/categories');
   }
 
-  getRubriques(categoryCode: number): Observable<any> {
-    return this.http.get('http://localhost:8081/rubriques/' + categoryCode);
+  getRubriques(categoryId: number): Observable<any> {
+    return this.http.get('http://localhost:8081/rubriques/' + categoryId);
   }
 
   getOffresByUserId(userId: number): Observable<any> {

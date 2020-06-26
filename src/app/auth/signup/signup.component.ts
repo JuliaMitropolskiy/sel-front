@@ -51,8 +51,7 @@ export class SignupComponent implements OnInit {
       .subscribe(
         () => {
           console.log('L\'inscription reussi');
-          this.authService.setSession(newUser);
-          this.router.navigate(['offres']);
+          this.router.navigate(['auth/signin']);
         },
         (error) => {
           console.log(error.error.message);

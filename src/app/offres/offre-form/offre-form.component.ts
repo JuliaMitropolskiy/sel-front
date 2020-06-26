@@ -37,8 +37,8 @@ export class OffreFormComponent implements OnInit {
       titre: ['', Validators.required],
       text: ['', Validators.required],
       category: ['', Validators.required],
-      rubrique: ['', Validators.required],
-      photoLien: ''
+      rubrique: ['', Validators.required]
+      // photoLien: ''
     });
   }
 
@@ -47,7 +47,7 @@ export class OffreFormComponent implements OnInit {
     const text = f.text;
     const userId = JSON.parse(localStorage.getItem('current_user')).id;
     const rubrique = f.rubrique;
-    const photoLien = f.photoLien;
+    // const photoLien = f.photoLien;
     this.offreService.createOffre(titre, text, userId, rubrique).subscribe(
       () => {
         this.router.navigate(['offres']);
@@ -62,9 +62,9 @@ export class OffreFormComponent implements OnInit {
     this.router.navigate(['offres']);
   }
 
-  getRubriques(categoryCode) {
-    console.log(categoryCode);
-    this.offreService.getRubriques(categoryCode).subscribe(
+  getRubriques(categoryId) {
+    console.log(categoryId);
+    this.offreService.getRubriques(categoryId).subscribe(
       (res) => {
         this.rubriques = res;
       }
