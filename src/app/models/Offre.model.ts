@@ -13,14 +13,16 @@ export class Offre {
 }
 
 export class Rubrique {
-  code: string;
+  id: number;
   libelle: string;
-  category: Category;
+  categoryId: Category;
 }
 
 export class Category {
-  categoryCode: string;
-  libelle: string;
+  constructor(
+    public id: number,
+    public libelle: string
+  ) { }
 }
 
 /*

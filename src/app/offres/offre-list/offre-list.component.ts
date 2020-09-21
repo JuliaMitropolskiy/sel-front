@@ -16,7 +16,6 @@ export class OffreListComponent implements OnInit {
 
   ngOnInit() {
     this.offres = [];
-    console.log(localStorage.getItem('current_user'));
     this.offreService.getAllOffres().subscribe(
       (result: any) => {
         console.log(result);
