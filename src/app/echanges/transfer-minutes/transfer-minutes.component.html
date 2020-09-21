@@ -1,1 +1,51 @@
-<p>transfer-minutes works!</p>
+<div class="row">
+  <div class="col-sm-8 offset-sm-2">
+    <h2>Transferer des minutes</h2>
+    <form [formGroup]="transferForm" (ngSubmit)="onSubmit(transferForm.value)">
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select class="custom-select"
+                id="category"
+                formControlName="category">
+          <option *ngFor="let category of categories, let i = index" [value]="i">{{ category.libelle }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="date">Date d'échange</label>
+        <input type="date"
+               id="date"
+               class="form-control"
+               formControlName="date">
+      </div>
+      <div class="form-group">
+        <label for="minutes">Minutes</label>
+        <input type="number"
+               id="minutes"
+               class="form-control"
+               formControlName="minutes">
+      </div>
+      <div class="form-group">
+        <label for="beneficiaire">Bénéficiaire</label>
+        <select class="form-control" id="beneficiaire" formControlName="beneficiaire">
+          <option *ngFor="let user of users" [value]="user.id">{{ user.prenom }} {{ user.nom }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message"
+                  class="form-control"
+                  formControlName="message"></textarea>
+      </div>
+
+      <button class="btn btn-success"
+              type="submit"
+              [disabled]="transferForm.invalid">
+              Transferer
+      </button>
+
+    </form>
+    <p class="text-danger">{{ errorMessage }}</p>
+  </div>
+</div>
+
+

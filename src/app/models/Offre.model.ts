@@ -19,8 +19,10 @@ export class Rubrique {
 }
 
 export class Category {
-  id: number;
-  libelle: string;
+  constructor(
+    public id: number,
+    public libelle: string
+  ) { }
 }
 
 /*

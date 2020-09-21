@@ -45,7 +45,7 @@ export class OffreFormComponent implements OnInit {
   onSubmit(f) {
     const titre = f.titre;
     const text = f.text;
-    const userId = JSON.parse(localStorage.getItem('current_user')).id;
+    const userId = parseInt(localStorage.getItem('id'));
     const rubrique = f.rubrique;
     // const photoLien = f.photoLien;
     this.offreService.createOffre(titre, text, userId, rubrique).subscribe(

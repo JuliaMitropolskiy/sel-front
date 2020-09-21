@@ -1,3 +1,4 @@
+import { EchangeService } from './services/echange.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AnnonceService } from './services/annonce.service';
 import { OffreService } from './services/offre.service';
@@ -49,7 +50,8 @@ import { AccueilComponent } from './accueil/accueil.component';
     AuthService,
     OffreService,
     AnnonceService,
-    AuthGuardService
+    AuthGuardService,
+    EchangeService
   ],
   bootstrap: [AppComponent]
 })
