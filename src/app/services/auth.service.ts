@@ -31,11 +31,17 @@ export class AuthService {
   setSession(user) {
     localStorage.setItem('current_user', JSON.stringify(user));
     localStorage.setItem('id', user.id);
+    console.log('hey1 ', this.isAuth);
     this.isAuth = true;
+    console.log('hey2 ', this.isAuth);
   }
 
   getUserById(id: number) {
     return this.http.get('http://localhost:8081/users/' + id);
+  }
+
+  getIsAuth() {
+    return this.isAuth;
   }
 
 }

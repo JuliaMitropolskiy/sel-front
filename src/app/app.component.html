@@ -1,5 +1,14 @@
-<app-header></app-header>
-<div class="container">
-  <router-outlet></router-outlet>
+<app-header [showAll] = showAll></app-header>
+
+  <div class="backgroudBlur">
+    <div *ngIf="showAll" class="container bg-light">
+      <router-outlet *ngIf="showAll"></router-outlet>
+    </div>
+
+    <div *ngIf="!showAll"  class="container bg-transparent">
+      <router-outlet *ngIf="!showAll"></router-outlet>
+    </div>
+    <notifier-container></notifier-container>
 </div>
+
 

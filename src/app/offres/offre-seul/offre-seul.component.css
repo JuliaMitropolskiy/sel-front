@@ -1,0 +1,16 @@
+.card-header {
+  font-size: 15px;
+}
+
+.card-footer {
+  font-size: 10px;
+}
+
+.card-text {
+  font-size: 13px;
+}
+
+.category {
+  font-size: 12px;
+  font-weight: bold;
+}

@@ -1,0 +1,21 @@
+.container {
+  max-width: 800px;
+  min-height: calc(100vh - 56px);
+  padding-top: 30px;
+  padding-bottom: 20px;
+  position: relative;
+  top: 56px;
+  overflow-y: hidden;
+  z-index: 10;
+  opacity: 1;
+}
+
+.backgroudBlur {
+  width: 100vw;
+  height: 100vh;
+  /* background-color: rgba(255, 255, 255, 0.548); */
+  background-color:rgba(255, 255, 255, 0.4);
+  overflow-y: auto;
+  background-position: center;
+  background-size: cover;
+}

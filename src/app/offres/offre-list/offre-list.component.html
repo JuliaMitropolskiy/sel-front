@@ -1,9 +1,17 @@
+<div [formGroup]="filtre" class="mb-4">
+  <div class="form-group d-flex flex-orientation-row">
+    <label for="category" class="d-block pt-2">Filtrer par category : </label>
+    <select class="custom-select w-50 mx-3"
+            id="category"
+            (change)="showOffers($event.target.value)"
+            formControlName="category">
+      <option *ngFor="let category of categories" [value]="category.id">{{ category.libelle }}</option>
+    </select>
+    <i *ngIf=showCancel class="fas fa-times text-primary d-block pt-2" (click)="cancelFiltre()"
+    data-toggle="tooltip" data-placement="right" title="Supprimer filtre"></i>
+  </div>
+</div>
+<div *ngIf=rienTrouve class="font-italic text-center mt-5">Il n'y a pas d'offres correspondant à votre sélection.</div>
 <div *ngFor="let offre of offres">
-  <div>{{ offre.rubrique.libelle }}</div>
-  <div>{{ offre.titre }}</div>
-  <div>{{ offre.text }}</div>
-  <div>{{ offre.dateCreation }}</div>
-  <div>{{ offre.userPrenom }}</div>
-  <div>{{ offre.userCommune }}</div>
-  <div>-----</div>
+  <app-offre-seul [offre] = "offre" [showFooter] = true></app-offre-seul>
 </div>

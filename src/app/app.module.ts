@@ -22,6 +22,10 @@ import { TransferMinutesComponent } from './echanges/transfer-minutes/transfer-m
 import { EchangeListComponent } from './echanges/echange-list/echange-list.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { HomeComponent } from './layout/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatExpansionModule } from '@angular/material';
+import { NotifierModule } from 'angular-notifier';
 
 @NgModule({
   declarations: [
@@ -37,14 +41,18 @@ import { AccueilComponent } from './accueil/accueil.component';
     TransferMinutesComponent,
     EchangeListComponent,
     HeaderComponent,
-    AccueilComponent
+    AccueilComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatExpansionModule,
+    NotifierModule
   ],
   providers: [
     AuthService,

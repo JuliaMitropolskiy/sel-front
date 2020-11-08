@@ -17,7 +17,7 @@ export class OffreService {
   createOffre(titre: string, text: string, userId: number, rubriqueId: number) {
     const body = { 'titre': titre, 'text': text, 'userId': userId, 'rubriqueId': rubriqueId };
 
-    return this.http.post('http://localhost:8081/offres/new', body);
+    return this.http.post('http://localhost:8081/offres', body);
   }
 
   getCategories(): Observable<any> {

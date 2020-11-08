@@ -15,7 +15,7 @@ export class Offre {
 export class Rubrique {
   id: number;
   libelle: string;
-  categoryId: Category;
+  category: Category;
 }
 
 export class Category {
