@@ -1,7 +1,8 @@
+import { NotifierService } from 'angular-notifier';
 import { Router } from '@angular/router';
 import { User } from './../../models/User.model';
 import { AuthService } from './../../services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -13,10 +14,12 @@ export class SignupComponent implements OnInit {
 
   signupForm: FormGroup;
   errorMessage: string;
+  @Output() signUpFinished = new EventEmitter();
 
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
+    private notifier: NotifierService,
     private router: Router) { }
 
   ngOnInit() {
@@ -51,7 +54,9 @@ export class SignupComponent implements OnInit {
       .subscribe(
         () => {
           console.log('L\'inscription reussi');
-          this.router.navigate(['auth/signin']);
+          this.initForm();
+          this.notifier.notify('success', 'Votre compte a été créé. Vous pouvez vous connecter.');
+          this.signUpFinished.emit(mail);
         },
         (error) => {
           console.log(error.error.message);
